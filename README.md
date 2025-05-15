@@ -23,7 +23,7 @@ hogwarts-houses-app/
 
 - **Frontend (Vercel)**: [Hogwarts Houses Frontend](http://hogwarts-houses-app.vercel.app/)
 
-- **Backend (Railway)**: [Hogwarts Houses Backend](https://hogwarts-houses-app-production.up.railway.app/)
+- **Backend (Railway)**: [Hogwarts Houses Backend](https://hogwarts-houses-app-production.up.railway.app/houses)
 
 ---
 
