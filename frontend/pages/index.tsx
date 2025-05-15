@@ -121,7 +121,7 @@ export default function Home() {
               >
                 <div className="text-xl font-bold flex justify-between">
                   <span>{house.name}</span>
-                  <span className="text-base font-normal text-gray-600">
+                  <span className="text-base font-semibold text-gray-600">
                     {house.animal}
                   </span>
                 </div>
@@ -131,12 +131,12 @@ export default function Home() {
                 ></div>
                 <p className="text-sm mb-2">
                   Founder:{" "}
-                  <span className="font-semibold">{house.founder}</span>
+                  <span className="font-bold">{house.founder}</span>
                 </p>
                 <div className="relative w-full mb-2">
                   <input
                     type="text"
-                    placeholder="Filter traits..."
+                    placeholder="Search house traits"
                     value={traitSearch}
                     onChange={(e) =>
                       handleTraitChange(house.id, e.target.value)
