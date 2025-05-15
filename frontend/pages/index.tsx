@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import Spinner from "./components/Spinner";
+import { useDebounce } from "./hooks/useDebounce";
 
 type Trait = {
   id: string;
@@ -16,11 +18,14 @@ type House = {
 
 export default function Home() {
   const [houses, setHouses] = useState<House[]>([]);
-  const [search, setSearch] = useState("");
   const [traitFilters, setTraitFilters] = useState<Record<string, string>>({});
+  const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState("");
+  const debouncedSearch = useDebounce(search, 400);
 
   useEffect(() => {
     const fetchHouses = async () => {
+      setLoading(true);
       try {
         const res = await fetch(
           "https://hogwarts-houses-app-production.up.railway.app/houses"
@@ -36,29 +41,55 @@ export default function Home() {
         setHouses(processed);
       } catch (err) {
         console.error("Failed to fetch houses:", err);
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchHouses();
   }, []);
 
+  const filteredHouses = houses.filter((house) =>
+    debouncedSearch.length < 3
+      ? true
+      : house.name.toLowerCase().includes(debouncedSearch.toLowerCase())
+  );
+
   const handleTraitChange = (houseId: string, value: string) => {
     setTraitFilters((prev) => ({ ...prev, [houseId]: value }));
   };
 
-  const filteredHouses = houses.filter((house) =>
-    house.name.toLowerCase().includes(search.toLowerCase())
-  );
+  if (loading) {
+    return (
+      <div className="min-h-screen flex justify-center items-center">
+        <Spinner />
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen p-8 font-sans bg-white text-black flex flex-col items-center">
-      <input
-        type="text"
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        placeholder="Search houses"
-        className="mb-8 p-2 border border-gray-300 rounded w-full max-w-xs"
-      />
+      <div className="relative w-full max-w-xs mb-8">
+        <input
+          type="text"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          placeholder="Search houses"
+          className="p-2 border border-gray-300 rounded w-full pr-8" // pr-8 for the X space
+        />
+        {search && (
+          <span
+            className="absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer select-none text-gray-400 text-lg"
+            onClick={() => setSearch("")}
+            role="button"
+            tabIndex={0}
+            aria-label="Clear search"
+          >
+            ×
+          </span>
+        )}
+      </div>
+
       <div className="flex flex-col items-center gap-8 w-full">
         {filteredHouses.map((house) => {
           const traitSearch = traitFilters[house.id] || "";
