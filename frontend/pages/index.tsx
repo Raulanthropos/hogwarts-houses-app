@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import Spinner from "./components/Spinner";
-import { useDebounce } from "./hooks/useDebounce";
+import Spinner from "../components/Spinner";
+import { useDebounce } from "../hooks/useDebounce";
 
 type Trait = {
   id: string;
@@ -130,8 +130,7 @@ export default function Home() {
                   style={{ background: gradient }}
                 ></div>
                 <p className="text-sm mb-2">
-                  Founder:{" "}
-                  <span className="font-bold">{house.founder}</span>
+                  Founder: <span className="font-bold">{house.founder}</span>
                 </p>
                 <div className="relative w-full mb-2">
                   <input
