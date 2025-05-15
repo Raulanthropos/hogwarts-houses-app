@@ -117,11 +117,11 @@ export default function Home() {
             return (
               <div
                 key={house.id}
-                className="border border-gray-300 rounded p-4 shadow w-full"
+                className="border border-gray-300 rounded-lg py-4 px-2 shadow w-full"
               >
                 <div className="text-xl font-bold flex justify-between">
                   <span>{house.name}</span>
-                  <span className="text-base font-semibold text-gray-600">
+                  <span className="text-sm font-normal text-black">
                     {house.animal}
                   </span>
                 </div>
@@ -158,7 +158,7 @@ export default function Home() {
                   {visibleTraits.map((trait) => (
                     <span
                       key={trait.id}
-                      className="bg-gray-800 text-white border-gray-300 rounded-full px-3 py-1 text-xs font-semibold shadow-sm"
+                      className="bg-gray-800 text-white border-gray-300 rounded-md px-3 py-1 text-xs font-light shadow-sm"
                     >
                       {trait.name}
                     </span>
