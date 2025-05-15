@@ -75,7 +75,7 @@ export default function Home() {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search houses"
-          className="p-2 border border-gray-300 rounded w-full pr-8" // pr-8 for the X space
+          className="p-2 border border-gray-300 rounded w-full pr-8"
         />
         {search && (
           <span
