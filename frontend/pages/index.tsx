@@ -132,7 +132,7 @@ export default function Home() {
                 <p className="text-sm mb-2">
                   Founder: <span className="font-bold">{house.founder}</span>
                 </p>
-                <div className="relative w-full mb-2">
+                <div className="relative max-w-xs mb-2">
                   <input
                     type="text"
                     placeholder="Search house traits"
