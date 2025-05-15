@@ -13,10 +13,10 @@ It contains:
 
 ## 📁 Folder Structure
 
-hogwarts-houses-app/
+```hogwarts-houses-app/
 ├── frontend/   # Next.js + TypeScript app
 ├── backend/    # Express.js REST API
-
+```
 ---
 
 ## 🚀 Live Deployment
