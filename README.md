@@ -66,3 +66,4 @@ npm run dev
 - Search is debounced after 3+ chars for performance and UX.
 - Gradient uses valid `houseColours` or defaults to white→black
 - Both frontend and backend are kept in the same repo for simplicity and clarity
+- Branches have not been deleted after merging, so reviewers can easily inspect commit history, code changes, and overall GitHub workflow.
