@@ -63,5 +63,6 @@ npm run dev
 
 - Font used: **Verdana**
 - Trait filtering happens **client-side** on already fetched data
+- Search is debounced after 3+ chars for performance and UX.
 - Gradient uses valid `houseColours` or defaults to white→black
 - Both frontend and backend are kept in the same repo for simplicity and clarity
