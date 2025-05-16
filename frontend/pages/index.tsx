@@ -119,16 +119,18 @@ export default function Home() {
                 key={house.id}
                 className="border border-gray-300 rounded-lg py-4 px-2 shadow w-full"
               >
-                <div className="text-xl font-bold flex justify-between">
-                  <span>{house.name}</span>
-                  <span className="text-sm font-normal text-black">
-                    {house.animal}
-                  </span>
+                <div className="mx-1">
+                  <div className="text-xl font-bold flex justify-between">
+                    <span>{house.name}</span>
+                    <span className="text-sm font-normal text-black">
+                      {house.animal}
+                    </span>
+                  </div>
+                  <div
+                    className="h-4 my-2 rounded"
+                    style={{ background: gradient }}
+                  ></div>
                 </div>
-                <div
-                  className="h-4 my-2 rounded"
-                  style={{ background: gradient }}
-                ></div>
                 <p className="text-sm mb-2">
                   Founder: <span className="font-bold">{house.founder}</span>
                 </p>
