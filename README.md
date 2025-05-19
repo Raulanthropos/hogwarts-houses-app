@@ -31,7 +31,7 @@ It contains:
 
 ### 1. Clone the repo
 ```bash
-git clone https://github.com/your-username/hogwarts-houses-app.git
+git clone https://github.com/Raulanthropos/hogwarts-houses-app.git
 cd hogwarts-houses-app
 ```
 
